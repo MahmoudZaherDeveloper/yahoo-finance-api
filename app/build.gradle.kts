@@ -24,12 +24,16 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String", "API_URL", "\"https://jsonplaceholder.typicode.com/\"")
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "API_URL", "\"https://jsonplaceholder.typicode.com/\"")
         }
     }
     compileOptions {
@@ -41,6 +45,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.3"
@@ -70,6 +75,7 @@ dependencies {
     kapt(libs.hilt.android.compiler)
     implementation(libs.okhttp3.logging.interceptor)
     implementation(platform(libs.okhttp.bom))
+    implementation(libs.javapoet)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)

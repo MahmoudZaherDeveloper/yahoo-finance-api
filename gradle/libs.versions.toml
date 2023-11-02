@@ -14,6 +14,7 @@ okhttp3-interceptor-version = "4.11.0"
 okhttp-bom-version = "4.11.0"
 coroutines-version = "1.7.1"
 hilt-version = "2.45"
+javapoet-version = "1.13.0"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -38,6 +39,7 @@ coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-
 coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines-version" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt-version" }
 hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt-version" }
+javapoet = { group = "com.squareup", name = "javapoet", version.ref = "javapoet-version" }
 
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "agp" }
