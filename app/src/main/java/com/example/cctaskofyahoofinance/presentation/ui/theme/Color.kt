@@ -1,4 +1,4 @@
-package com.example.cctaskofyahoofinance.ui.theme
+package com.example.cctaskofyahoofinance.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
