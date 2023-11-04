@@ -1,19 +1,19 @@
 package com.example.cctaskofyahoofinance.data.repository
 
-import com.example.cctaskofyahoofinance.data.model.PostsItem
+import com.example.cctaskofyahoofinance.data.model.summarylist.SummaryResponse
 import com.example.cctaskofyahoofinance.data.source.DataSource
 import com.example.cctaskofyahoofinance.data.source.remote.Resource
-import com.example.cctaskofyahoofinance.domain.repository.SummaryRepository
+import com.example.cctaskofyahoofinance.domain.repository.SummaryListRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
 
-class SummaryRepositoryImpl @Inject constructor(
+class SummaryListRepositoryImpl @Inject constructor(
     private val dataSource: DataSource
-) : SummaryRepository {
-    override suspend fun getDataList(): Flow<Resource<List<PostsItem>>> = flow {
+) : SummaryListRepository {
+    override suspend fun getDataList(): Flow<Resource<SummaryResponse>> = flow {
         emit(Resource.Loading())
         try {
             emit(

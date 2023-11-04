@@ -8,6 +8,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -25,9 +26,20 @@ object NetworkModule {
             level = HttpLoggingInterceptor.Level.BODY
         }
 
-        return OkHttpClient.Builder()
-            .addInterceptor(loggingInterceptor)
-            .build()
+        return OkHttpClient.Builder().apply {
+            addInterceptor(
+                Interceptor { chain ->
+                    val builder = chain.request().newBuilder()
+                    builder.header(
+                        "X-RapidAPI-Key",
+                        "27b202476fmshea6fc4eb5c1d74dp1ab788jsn8f388994ff4f"
+                    )
+                    builder.header("X-RapidAPI-Host", "yh-finance.p.rapidapi.com")
+                    return@Interceptor chain.proceed(builder.build())
+                }
+            )
+            addInterceptor(loggingInterceptor)
+        }.build()
     }
 
     @Provides

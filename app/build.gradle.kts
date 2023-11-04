@@ -25,7 +25,7 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField("String", "API_URL", "\"https://jsonplaceholder.typicode.com/\"")
+            buildConfigField("String", "API_URL", "\"https://yh-finance.p.rapidapi.com/\"")
         }
         release {
             isMinifyEnabled = false
@@ -33,7 +33,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField("String", "API_URL", "\"https://jsonplaceholder.typicode.com/\"")
+            buildConfigField("String", "API_URL", "\"https://yh-finance.p.rapidapi.com/\"")
         }
     }
     compileOptions {
@@ -72,10 +72,12 @@ dependencies {
     implementation(libs.coroutines.android)
     implementation(libs.coroutines.core)
     implementation(libs.hilt.android)
+    implementation(libs.hilt.navigation.compose)
     kapt(libs.hilt.android.compiler)
     implementation(libs.okhttp3.logging.interceptor)
     implementation(platform(libs.okhttp.bom))
     implementation(libs.javapoet)
+    implementation(libs.coil.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)

@@ -1,10 +1,10 @@
 package com.example.cctaskofyahoofinance.data.source.remote
 
-import com.example.cctaskofyahoofinance.data.model.PostsItem
+import com.example.cctaskofyahoofinance.data.model.summarylist.SummaryResponse
 import retrofit2.http.GET
 
 interface ApiService {
-    @GET("posts")
-    suspend fun getDataList(): List<PostsItem>
+    @GET("market/v2/get-summary?region=US")
+    suspend fun getDataList(): SummaryResponse
 
 }
