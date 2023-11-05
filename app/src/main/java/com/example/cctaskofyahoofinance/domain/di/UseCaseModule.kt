@@ -1,6 +1,6 @@
 package com.example.cctaskofyahoofinance.domain.di
 
-import com.example.cctaskofyahoofinance.domain.repository.SummaryListRepository
+import com.example.cctaskofyahoofinance.domain.repository.SummaryRepository
 import com.example.cctaskofyahoofinance.domain.usecase.GetSummaryList
 import dagger.Module
 import dagger.Provides
@@ -13,7 +13,7 @@ import javax.inject.Singleton
 class UseCaseModule {
     @Provides
     @Singleton
-    fun provideSummaryUseCase(summaryListRepository: SummaryListRepository): GetSummaryList {
-        return GetSummaryList(summaryListRepository)
+    fun provideSummaryUseCase(summaryRepository: SummaryRepository): GetSummaryList {
+        return GetSummaryList(summaryRepository)
     }
 }

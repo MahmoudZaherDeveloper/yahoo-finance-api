@@ -55,6 +55,7 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    viewBinding.enable = true
 }
 
 dependencies {
@@ -73,6 +74,9 @@ dependencies {
     implementation(libs.coroutines.core)
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)
+    implementation(libs.appcompat)
+    implementation(libs.material)
+    implementation(libs.constraintlayout)
     kapt(libs.hilt.android.compiler)
     implementation(libs.okhttp3.logging.interceptor)
     implementation(platform(libs.okhttp.bom))
