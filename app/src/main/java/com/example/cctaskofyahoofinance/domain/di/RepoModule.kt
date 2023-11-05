@@ -1,8 +1,8 @@
 package com.example.cctaskofyahoofinance.domain.di
 
-import com.example.cctaskofyahoofinance.data.repository.SummaryListRepositoryImpl
+import com.example.cctaskofyahoofinance.data.repository.SummaryRepositoryImpl
 import com.example.cctaskofyahoofinance.data.source.DataSource
-import com.example.cctaskofyahoofinance.domain.repository.SummaryListRepository
+import com.example.cctaskofyahoofinance.domain.repository.SummaryRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,7 +14,7 @@ import javax.inject.Singleton
 class RepoModule {
     @Provides
     @Singleton
-    fun provideSummaryRepositoryImpl(dataSource: DataSource): SummaryListRepository =
-        SummaryListRepositoryImpl(dataSource)
+    fun provideSummaryRepositoryImpl(dataSource: DataSource): SummaryRepository =
+        SummaryRepositoryImpl(dataSource)
 
 }
