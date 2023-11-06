@@ -30,11 +30,8 @@ object NetworkModule {
             addInterceptor(
                 Interceptor { chain ->
                     val builder = chain.request().newBuilder()
-                    builder.header(
-                        "X-RapidAPI-Key",
-                        "27b202476fmshea6fc4eb5c1d74dp1ab788jsn8f388994ff4f"
-                    )
-                    builder.header("X-RapidAPI-Host", "yh-finance.p.rapidapi.com")
+                    builder.header("X-RapidAPI-Key", BuildConfig.API_KEY)
+                    builder.header("X-RapidAPI-Host", BuildConfig.API_HOST)
                     return@Interceptor chain.proceed(builder.build())
                 }
             )

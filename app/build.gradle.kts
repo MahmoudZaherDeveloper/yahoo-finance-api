@@ -24,8 +24,16 @@ android {
     }
 
     buildTypes {
+
         debug {
             buildConfigField("String", "API_URL", "\"https://yh-finance.p.rapidapi.com/\"")
+            buildConfigField(
+                "String",
+                "API_KEY",
+                "\"27b202476fmshea6fc4eb5c1d74dp1ab788jsn8f388994ff4f\""
+            )
+            buildConfigField("String", "API_HOST", "\"yh-finance.p.rapidapi.com\"")
+            // buildConfigField("String", "API_KEY", gradleLocalProperties(rootDir).getProperty("API_KEY"))
         }
         release {
             isMinifyEnabled = false
@@ -34,6 +42,13 @@ android {
                 "proguard-rules.pro"
             )
             buildConfigField("String", "API_URL", "\"https://yh-finance.p.rapidapi.com/\"")
+            buildConfigField(
+                "String",
+                "API_KEY",
+                "\"27b202476fmshea6fc4eb5c1d74dp1ab788jsn8f388994ff4f\""
+            )
+            buildConfigField("String", "API_HOST", "\"yh-finance.p.rapidapi.com\"")
+            // buildConfigField("String", "API_KEY", gradleLocalProperties(rootDir).getProperty("API_KEY"))
         }
     }
     compileOptions {
