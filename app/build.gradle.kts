@@ -24,12 +24,31 @@ android {
     }
 
     buildTypes {
+
+        debug {
+            buildConfigField("String", "API_URL", "\"https://yh-finance.p.rapidapi.com/\"")
+            buildConfigField(
+                "String",
+                "API_KEY",
+                "\"27b202476fmshea6fc4eb5c1d74dp1ab788jsn8f388994ff4f\""
+            )
+            buildConfigField("String", "API_HOST", "\"yh-finance.p.rapidapi.com\"")
+            // buildConfigField("String", "API_KEY", gradleLocalProperties(rootDir).getProperty("API_KEY"))
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "API_URL", "\"https://yh-finance.p.rapidapi.com/\"")
+            buildConfigField(
+                "String",
+                "API_KEY",
+                "\"27b202476fmshea6fc4eb5c1d74dp1ab788jsn8f388994ff4f\""
+            )
+            buildConfigField("String", "API_HOST", "\"yh-finance.p.rapidapi.com\"")
+            // buildConfigField("String", "API_KEY", gradleLocalProperties(rootDir).getProperty("API_KEY"))
         }
     }
     compileOptions {
@@ -41,6 +60,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.3"
@@ -50,6 +70,7 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    viewBinding.enable = true
 }
 
 dependencies {
@@ -67,9 +88,15 @@ dependencies {
     implementation(libs.coroutines.android)
     implementation(libs.coroutines.core)
     implementation(libs.hilt.android)
+    implementation(libs.hilt.navigation.compose)
+    implementation(libs.appcompat)
+    implementation(libs.material)
+    implementation(libs.constraintlayout)
     kapt(libs.hilt.android.compiler)
     implementation(libs.okhttp3.logging.interceptor)
     implementation(platform(libs.okhttp.bom))
+    implementation(libs.javapoet)
+    implementation(libs.coil.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
