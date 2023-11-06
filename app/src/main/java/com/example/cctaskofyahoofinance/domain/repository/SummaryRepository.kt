@@ -6,6 +6,7 @@ import com.example.cctaskofyahoofinance.data.source.remote.Resource
 import kotlinx.coroutines.flow.Flow
 
 interface SummaryRepository {
+    //todo: use mapper .. entity to prevent import data layer here
     suspend fun getSummaryList(): Flow<Resource<SummaryResponse>>
 
     suspend fun getSummaryDetails(
