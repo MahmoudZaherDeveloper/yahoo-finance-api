@@ -19,12 +19,6 @@ class SummaryDetailsActivity : AppCompatActivity() {
         binding = ActivitySummaryDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val intent = intent
-        val region = intent.getStringExtra("region").orEmpty()
-        val symbol = intent.getStringExtra("symbol").orEmpty()
-
-        summaryDetailsViewModel.getSummaryDetail(region, symbol)
-
         setUpData()
 
     }

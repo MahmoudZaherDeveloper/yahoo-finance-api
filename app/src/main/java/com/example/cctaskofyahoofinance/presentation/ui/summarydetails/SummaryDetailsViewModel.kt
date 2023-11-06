@@ -1,5 +1,6 @@
 package com.example.cctaskofyahoofinance.presentation.ui.summarydetails
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cctaskofyahoofinance.data.source.remote.Resource
@@ -14,12 +15,22 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SummaryDetailsViewModel @Inject constructor(
-    private val getSummaryDetails: GetSummaryDetails
+    private val getSummaryDetails: GetSummaryDetails,
+    stateHandle: SavedStateHandle
 ) : ViewModel() {
+
+    private val region = stateHandle.get<String>("region")
+    private val symbol = stateHandle.get<String>("symbol")
+
+    init {
+        getSummaryDetail(region = region, symbol = symbol)
+    }
 
     private val _state = MutableStateFlow(SummaryDetailsUiState())
     val state: StateFlow<SummaryDetailsUiState> = _state
-    fun getSummaryDetail(region: String, symbol: String) {
+    private fun getSummaryDetail(region: String?, symbol: String?) {
+        if (region.isNullOrBlank() || symbol.isNullOrBlank())
+            return
         viewModelScope.launch {
 
             getSummaryDetails(region, symbol)

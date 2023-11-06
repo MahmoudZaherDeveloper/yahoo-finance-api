@@ -37,6 +37,8 @@ class SummaryRepositoryImpl @Inject constructor(
         }
     }
 
+    //todo: use safe api call extension to prevent duplication of exception each time
+    //todo : we can do 4 packages app, network, data, domain
     override suspend fun getSummaryDetails(
         region: String,
         symbol: String
